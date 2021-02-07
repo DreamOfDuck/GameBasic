@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <stdlib.h>
+#incldue <conio.h>
 using namespace std;
 bool gameOver;
 const int width = 20;
@@ -7,7 +8,7 @@ const int height = 20;
 int x, y, fruitX, fruitY, score;
 enum eDirection
 {
-	STOP = 0;
+	STOP = 0,
 	LEFT,
 	RIGHT,
 	UP,
@@ -22,36 +23,60 @@ void SetUp()
 	y = height / 2;
 	fruitX = rand() % width;
 	fruitY = rand() % height;
-	socre = 0;
+	score = 0;
 }
 void Draw()
 {
-	system("cls"); // 시스템창 깔끔히 지우기
-	for (int i=0; i< width; i++)
-	cout << "#";
+	system("cls");
+	for ( int i=0; i < width+2; i++)
+		cout << "#";
 	cout << endl;
 	
 	for(int i=0; i< height; i++)
 	{
 		for(int j=0; j< width; j++)
 		{
-			if(j == 0)
+			if(j==0)
 				cout << "#";
+			if(i == y && j == x)
+				cout << "0";
+			else if (i == fruitY && j == fruitX)
+				cout << "F";
 			else
 				cout << " ";
-			if(j == width-1)
+			if(j==width-1)
 				cout << "#";
 		}
+		cout << endl;
 	}
 	
-	for (int i=0; i< width; i++)
-	cout << "#";
+	for ( int i=0; i < width+2; i++)
+		cout << "#";
 	cout << endl;
-	
 }
 void Input()
 {
-	
+	if(_kbhit())
+	{
+		switch (_getch())
+		{
+			case 'a':
+				dir = LEFT;
+				break;
+				case 'd':
+					dir = RIGHT;
+					break;
+					case 'w':
+						dir = UP;
+						break;
+						case 's':
+							dir = DOWN;
+							break;
+							case 'x':
+								gameOver = true;
+								break;
+		}
+	}
 }
 void Logic()
 {
@@ -59,7 +84,7 @@ void Logic()
 }
 int main()
 {
-	Setup();
+	SetUp();
 	
 	while(!gameOver)
 	{
