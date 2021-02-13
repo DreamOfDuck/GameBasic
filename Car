@@ -29,3 +29,23 @@ void gotoxy(int x, int y){
 	CursorPosition.Y =y;
 	SetConsloeCursorPosition(console, CursorPosition);
 } 
+void setcursor(bool visible, DWORD size) {
+	if(size == 0)
+	size=20;
+	
+	CONSOLE_CURSOR_INFO 1pCursor;
+	1pCursor.bVisible = visible;
+	1pCursor.dwSize = size;
+	SetConsoleCursorInfo(console,&1pCurosr);
+}
+void drawBorder(){
+	for(int i=0; i<SCREEN_HEIGHT; i++){
+		for(int j=0; j<17; j++){
+			gotoxy(0+j,i); cou<<"凸";
+			gotoxy(WIN_WIDTH-j,i); cout<<"凸";
+		}
+	}
+	for(int i=0; i<SCREEN_HEIGHT; i++){
+		gotoxy(SCREEN_WIDTH,i); cout<<"凸";
+	} 
+}
