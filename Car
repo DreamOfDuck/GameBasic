@@ -68,3 +68,4 @@ void eraseEnemy(int ind){
 		gotoxy(enemyX[ind], enemyY[ind]+3);	cout<<"    ";
 	}
 }
+//2012 update in 210216
