@@ -97,3 +97,5 @@ int collision(){
 	}
 	return 0;
 }
+
+// update in 21 02 19
