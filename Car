@@ -107,4 +107,4 @@ void gameover(){
 	getch();
 }
 
-Update in210227
+Update in210228
