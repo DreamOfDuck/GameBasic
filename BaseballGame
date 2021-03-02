@@ -2,7 +2,7 @@
 #include <time.h>
 
 using namespace std;
-
+// 210302
 int main()
 {
 	srand((unsigned int)time(NULL));
