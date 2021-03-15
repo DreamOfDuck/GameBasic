@@ -144,6 +144,7 @@ void Logic()
 		nTail++;
 	}
 }
+
 int main()
 {
 	SetUp();
