@@ -2,7 +2,7 @@
 #include <time.h>
 #include <conio.h>
 
-//빙고 게임 210326
+//빙고 게임 210402
 using namespace std;
 
 enum AI_MODE
